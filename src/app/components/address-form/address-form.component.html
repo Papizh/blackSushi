@@ -1,0 +1,54 @@
+<h3>Доставка</h3>
+<form (ngSubmit)="onSubmit()" #addressForm="ngForm" fxLayout fxLayout="column" fxLayoutGap="16px">
+    <mat-form-field>
+        <input
+            #nameField="ngModel"
+            type="text"
+            matInput
+            placeholder="Введіть ім'я"
+            required
+            [(ngModel)]="address.name"
+            name="name"
+            [disabled]="isReadOnly"
+        />
+        <mat-error *ngIf="nameField.invalid && nameField.errors['required']">
+            Ім'я є обовязкове
+        </mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+        <input
+            #addressLine1Field="ngModel"
+            type="text"
+            matInput
+            placeholder="Адреса"
+            required
+            [(ngModel)]="address.addressLines[0]"
+            name="addressLine1"
+            [disabled]="isReadOnly"
+        />
+        <mat-error
+                *ngIf="addressLine1Field.invalid && addressLine1Field.errors['required']"
+        >
+            Адреса є обовязкова
+        </mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+        <input
+            #telField="ngModel"
+            type="text"
+            matInput
+            placeholder="Номер телефону"
+            [(ngModel)]="address.addressLines[1]"
+            name="addressLine2"
+            [disabled]="isReadOnly"
+            required
+        />
+        <mat-error *ngIf="telField.invalid && telField.errors['required']">
+           Номер телефону є обовязковий
+        </mat-error>
+    </mat-form-field>
+    <button *ngIf="!isReadOnly" style="background-color: black; color: white;" mat-flat-button type="submit" [disabled]="!addressForm.form.valid"> Підтвердити замовлення
+    </button>
+</form>

@@ -1,0 +1,67 @@
+<div class="section">
+    <div class="container">
+        <h2>Shopping cart</h2>
+        <div
+                fxLayout="column"
+                fxLayoutAlign="space-between stretch"
+                fxLayoutGap="32px"
+        >
+            <p *ngIf="!totalQuantity">Ваша корзина пуста, зробіть будь ласка замовлення</p>
+            <button *ngIf="!totalQuantity" style="background-color: black; color: white;"  mat-flat-button  routerLink="/home" >Головна </button>
+            <p *ngIf="totalQuantity === 1">Ви обрали 1 продукт</p>
+            <p *ngIf="totalQuantity > 2<5">Ви обрали {{totalQuantity}}  продукти</p>
+            <p *ngIf="totalQuantity >7">Ви маєте  {{ totalQuantity }} товарів у корзині</p>
+
+            <div
+                    *ngIf="totalQuantity > 0"
+                    fxLayout="column"
+                    fxLayoutAlign="start stretch"
+                    fxLayoutGap="32px"
+            >
+                <table mat-table [dataSource]="dataSource">
+                    <ng-container matColumnDef="productImage">
+                        <th mat-header-cell *matHeaderCellDef></th>
+                        <td mat-cell *matCellDef="let item">
+                            <img [src]="item.product.imageUrl" alt="Product image"/>
+                        </td>
+                        <td mat-footer-cell *matFooterCellDef></td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="productName">
+                        <th mat-header-cell *matHeaderCellDef>Назва</th>
+                        <td mat-cell *matCellDef="let item">{{ item.product.title }}</td>
+                        <td mat-footer-cell *matFooterCellDef>Разом</td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="quantity">
+                        <th mat-header-cell *matHeaderCellDef>Кількість</th>
+                        <td mat-cell *matCellDef="let item">
+                            <app-quantity-selector
+                                    [item]="item"
+                                    (quantityPlusOne)="onQuantityPlusOne(item)"
+                                    (quantityMinusOne)="onQuantityMinusOne(item)"
+                            ></app-quantity-selector>
+                        </td>
+                        <td mat-footer-cell *matFooterCellDef>{{ totalQuantity }}</td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="price">
+                        <th mat-header-cell *matHeaderCellDef>Ціна</th>
+                        <td mat-cell *matCellDef="let item">
+                            {{ item.product.price * item.quantity  }} грн
+                        </td>
+                        <td mat-footer-cell *matFooterCellDef>{{ totalPrice }} грн</td>
+                    </ng-container>
+
+                    <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
+                    <tr mat-row *matRowDef="let row; columns: columnsToDisplay"></tr>
+                    <tr mat-footer-row *matFooterRowDef="columnsToDisplay"></tr>
+                </table>
+
+                <div fxLayout fxLayoutAlign="end center">
+                    <button routerLink="/check-out" style="background-color: black; color: white; margin-top: 5px;" mat-flat-button >Замовити</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

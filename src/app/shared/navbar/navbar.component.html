@@ -1,0 +1,76 @@
+<nav class="navbar navbar-expand-lg bg-primary fixed-top navbar-transparent" color-on-scroll="500">
+    <div class="container">
+        <div class="dropdown button-dropdown">
+            <div ngbDropdown>
+                <div ngbDropdownMenu>
+                    <a class="dropdown-header">Dropdown header</a>
+                    <a class="dropdown-item" href="#" [routerLink]="['/']">Головна</a>
+                    <a class="dropdown-item" href="#">Меню</a>
+                    <a class="dropdown-item" href="#">Доставка</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#">Separated link</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#">One more separated link</a>
+                </div>
+            </div>
+        </div>
+        <div class="navbar-translate">
+            <a class="navbar-brand" [routerLink]="['/']" placement="bottom">
+                Black Sushi
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler"
+                    aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation"
+                    (click)="sidebarToggle()">
+                <span class="navbar-toggler-bar bar1"></span>
+                <span class="navbar-toggler-bar bar2"></span>
+                <span class="navbar-toggler-bar bar3"></span>
+            </button>
+        </div>
+        <div class="collapse navbar-collapse" data-nav-image="assets/img/blurred-image-1.jpg" data-color="orange">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" [routerLink]="['/']">
+                        <i class="now-ui-icons -home"></i>
+                        <p>Головна</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" [matBadge]="numberInCart"
+                       [matBadgeHidden]="numberInCart < 1"
+                       [routerLink]="['/shopping-cart']">
+                        <i class="now-ui-icons shopping_cart-simple"></i>
+                        <p class="d-lg-none d-xl-none">Корзина</p>
+                    </a>
+
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" rel="tooltip" title="Наші Контакти" data-placement="bottom" target="_blank"
+                       (click)="open(modal_mini, 'modal_mini', 'sm')">
+                        <i class="now-ui-icons tech_mobile"></i>
+
+                        <p class="d-lg-none d-xl-none">Контакти</p>
+                        <ng-template #modal_mini let-c="close" let-d="dismiss">
+                            <div class="modal-body">
+                                <p>Наші контакти</p>
+                                <img src="assets/img/black sushi-kontakty.png" alt="Контакти">
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-link btn-neutral" [routerLink]="['/']"></button>
+                                <button type="button" class="btn btn-link btn-neutral" (click)="c('Close click')">
+                                    Close
+                                </button>
+                            </div>
+                        </ng-template>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" rel="tooltip" title="Ми в Instagram " data-placement="bottom"
+                       href="https://www.instagram.com/black_sushi_lviv" target="_blank">
+                        <i class="fab fa-instagram"></i>
+                        <p class="d-lg-none d-xl-none">Instagram</p>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>

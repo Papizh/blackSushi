@@ -1,0 +1,30 @@
+h2 {
+  margin-top: 0px;
+}
+
+tr.mat-footer-row {
+  font-weight: bold;
+}
+
+td img {
+  width: 75px;
+  height: 75px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.mat-column-quantity {
+
+}
+
+.mat-column-productImage {
+  width: 150px;
+}
+
+.mat-column-price {
+  width: 100px;
+  text-align: right;
+}
+.mat-header-cell {
+  padding-right: 10px ;
+}

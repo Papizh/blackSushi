@@ -1,0 +1,40 @@
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration-line: None;
+}
+
+tr.detail-row {
+  height: 0;
+}
+
+.order-detail {
+  overflow: hidden;
+  display: flex;
+}
+
+.order-row td {
+  border-bottom-width: 0;
+}
+
+.clickable {
+  cursor: pointer;
+}
+
+.clickable:hover {
+  background: #efefef;
+}
+
+.mat-column-totalPrice {
+  width: 120px;
+}
+
+.mat-column-date {
+  width: 180px;
+}
+
+.mat-column-link {
+  width: 100px;
+}

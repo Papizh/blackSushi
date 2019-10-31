@@ -1,0 +1,38 @@
+<mat-card style="max-width: 320px;margin: 20px">
+  <mat-card-header>
+    <mat-card-title>
+      {{ title }}
+    </mat-card-title>
+    <mat-card-subtitle>
+      {{ category }}
+    </mat-card-subtitle>
+  </mat-card-header>
+
+  <img [src]="imageUrl" alt="" />
+
+  <mat-card-content style="margin-left: 5%">
+    {{ price }} грн
+  </mat-card-content>
+
+  <mat-card-actions *ngIf="!isAdminPreview">
+    <div style="text-align: center" fxLayoutAlign="center center" >
+      <button
+        *ngIf="item.quantity === 0; else quantityArea"
+        style="background-color: black; color: white;margin-bottom: 5px;margin-left: 22%;"
+        mat-flat-button
+        (click)="addToCart()"
+      >
+        Добавити в корзину
+      </button>
+
+      <ng-template #quantityArea>
+        <app-quantity-selector
+          [item]="item"
+          [suffixText]="'в корзині'"
+          (quantityPlusOne)="addToCart()"
+          (quantityMinusOne)="removeFromCart()"
+        ></app-quantity-selector>
+      </ng-template>
+    </div>
+  </mat-card-actions>
+</mat-card>

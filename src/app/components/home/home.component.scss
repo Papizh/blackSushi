@@ -1,0 +1,27 @@
+.full-height {
+  height: 100%;
+}
+
+.scroll {
+  overflow-y: auto; /*adds scroll to this container*/
+}
+
+:host /deep/ .mat-radio-label {
+  .mat-radio-label-content {
+    padding-right: 50px;
+    padding-left: 2px;
+  }
+}
+.post {
+  display: flex;
+  justify-content: space-around;
+}
+
+@media (max-width: 500px){
+  :host /deep/ .mat-radio-label {
+    .mat-radio-label-content {
+      padding-right: 15px;
+      padding-left: 2px;
+    }
+  }
+}

@@ -41,8 +41,8 @@ export class ComponentsComponent implements OnInit, OnDestroy {
     }
 
     ngOnInit() {
-        const rellaxHeader = new Rellax('.rellax-header');
 
+        const rellaxHeader = new Rellax('.rellax-header');
         const navbar = document.getElementsByTagName('nav')[0];
         navbar.classList.add('navbar-transparent');
         const body = document.getElementsByTagName('body')[0];

@@ -15,6 +15,7 @@ import {AdminProductsComponent} from './components/admin/admin-products/admin-pr
 import {AdminOrdersComponent} from './components/admin/admin-orders/admin-orders.component';
 
 
+// @ts-ignore
 const routes: Routes = [
     {path: '', redirectTo: 'home', pathMatch: 'full'},
     {path: 'home', component: ComponentsComponent},
@@ -27,7 +28,8 @@ const routes: Routes = [
     {path: 'admin/products/new', component: ProductFormComponent},
     {path: 'admin/products/:id', component: ProductFormComponent},
     {path: 'admin/products', component: AdminProductsComponent},
-    {path: 'admin/orders', component: AdminOrdersComponent,
+    {
+        path: 'admin/orders', component: AdminOrdersComponent,
     }
 ];
 
@@ -35,7 +37,9 @@ const routes: Routes = [
     imports: [
         CommonModule,
         BrowserModule,
-        RouterModule.forRoot(routes)
+        RouterModule.forRoot(routes, {
+            onSameUrlNavigation: 'reload'
+        })
     ],
     exports: [],
 })

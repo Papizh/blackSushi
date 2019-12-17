@@ -1,23 +1,17 @@
 <div class="section">
-    <div class="container">
-        <h2>Shopping cart</h2>
-        <div
-                fxLayout="column"
-                fxLayoutAlign="space-between stretch"
-                fxLayoutGap="32px"
-        >
+    <div class="container margin">
+        <h2 class="textCenter">Корзина</h2>
+        <div fxLayout="column"
+             fxLayoutAlign="space-between stretch"
+             fxLayoutGap="32px">
             <p *ngIf="!totalQuantity">Ваша корзина пуста, зробіть будь ласка замовлення</p>
-            <button *ngIf="!totalQuantity" style="background-color: black; color: white;"  mat-flat-button  routerLink="/home" >Головна </button>
-            <p *ngIf="totalQuantity === 1">Ви обрали 1 продукт</p>
-            <p *ngIf="totalQuantity > 2<5">Ви обрали {{totalQuantity}}  продукти</p>
-            <p *ngIf="totalQuantity >7">Ви маєте  {{ totalQuantity }} товарів у корзині</p>
+            <button *ngIf="!totalQuantity" style="background-color: black; color: white;" mat-flat-button
+                    routerLink="/home">Головна
+            </button>
+            <p class="textCenter" *ngIf="totalQuantity === 1">Ви обрали 1 продукт.</p>
+            <p class="textCenter" *ngIf="totalQuantity >2<5">Ви обрали {{totalQuantity}}  продуктів.</p>
 
-            <div
-                    *ngIf="totalQuantity > 0"
-                    fxLayout="column"
-                    fxLayoutAlign="start stretch"
-                    fxLayoutGap="32px"
-            >
+            <div class="padingTable" *ngIf="totalQuantity > 0">
                 <table mat-table [dataSource]="dataSource">
                     <ng-container matColumnDef="productImage">
                         <th mat-header-cell *matHeaderCellDef></th>
@@ -58,8 +52,10 @@
                     <tr mat-footer-row *matFooterRowDef="columnsToDisplay"></tr>
                 </table>
 
-                <div fxLayout fxLayoutAlign="end center">
-                    <button routerLink="/check-out" style="background-color: black; color: white; margin-top: 5px;" mat-flat-button >Замовити</button>
+                <div class="padingMobile" fxLayout="row" fxLayoutAlign="end center">
+                    <button routerLink="/check-out" style="background-color: black; color: white; margin-top: 5px;"
+                            mat-flat-button>Замовити
+                    </button>
                 </div>
             </div>
         </div>

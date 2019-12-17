@@ -25,3 +25,15 @@
     }
   }
 }
+
+:host /deep/ .mat-radio-outer-circle {
+  border-color: black;
+}
+
+:host /deep/ .mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle {
+  border-color: black;
+}
+
+:host /deep/ .mat-radio-button.mat-accent .mat-radio-inner-circle {
+  background-color: black;
+}

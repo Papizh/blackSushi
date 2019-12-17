@@ -55,6 +55,5 @@ export class HomeComponent implements OnDestroy {
       : null;
 
     this.router.navigate([], { queryParams: queryParams, });
-
   }
 }

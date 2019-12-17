@@ -25,6 +25,37 @@ td img {
   width: 100px;
   text-align: right;
 }
+
 .mat-header-cell {
-  padding-right: 10px ;
+  padding-right: 10px;
+}
+
+.textCenter {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.margin {
+  margin-top: 50px;
+}
+
+.padingMobile {
+  @media only screen and (min-width: 1023px) and (max-width: 2000px) {
+    padding-left: 24em;
+  }
+  @media only screen and (min-width: 400px) and (max-width: 1024px) {
+    padding-left: 15em;
+  }
+  @media only screen and (min-width: 200px) and (max-width: 399px)  {
+    padding-left: 70%;
+  }
+}
+
+.padingTable {
+  @media only screen and (min-width: 1023px) and (max-width: 2000px) {
+    padding-left: 16em;
+  }
+  @media only screen and (min-width: 768px) and (max-width: 1024px) {
+    padding-left: 9em;
+  }
 }

@@ -1,22 +1,19 @@
-<nav class="navbar navbar-expand-lg bg-primary fixed-top navbar-transparent" color-on-scroll="500">
+<nav class="navbar navbar-expand-lg bg-primary fixed-top" color-on-scroll="500">
     <div class="container">
         <div class="dropdown button-dropdown">
             <div ngbDropdown>
                 <div ngbDropdownMenu>
                     <a class="dropdown-header">Dropdown header</a>
+                    <a class="dropdown-item" href="tel:+380630494941">80630494941 </a>
                     <a class="dropdown-item" href="#" [routerLink]="['/']">Головна</a>
-                    <a class="dropdown-item" href="#">Меню</a>
+                    <a class="dropdown-item " href="#">Меню</a>
                     <a class="dropdown-item" href="#">Доставка</a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">Separated link</a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">One more separated link</a>
                 </div>
             </div>
         </div>
         <div class="navbar-translate">
-            <a class="navbar-brand" [routerLink]="['/']" placement="bottom">
-                Black Sushi
+            <a class="navbar-brand logoP" [routerLink]="['/home']" placement="bottom">
+                Black Sushi & Pizza
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler"
                     aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation"
@@ -28,7 +25,13 @@
         </div>
         <div class="collapse navbar-collapse" data-nav-image="assets/img/blurred-image-1.jpg" data-color="orange">
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
+                <li class="nav-item tel">
+                    <a class="nav-link m-0" href="tel:+380630494941">(063) 049-49-41</a>
+                </li>
+                <li class="nav-item tel">
+                    <a class="nav-link m-0" href="tel:+380960494941">(096) 049-49-41</a>
+                </li>
+                <li class="nav-item tel">
                     <a class="nav-link" [routerLink]="['/']">
                         <i class="now-ui-icons -home"></i>
                         <p>Головна</p>
@@ -44,23 +47,10 @@
 
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" rel="tooltip" title="Наші Контакти" data-placement="bottom" target="_blank"
-                       (click)="open(modal_mini, 'modal_mini', 'sm')">
-                        <i class="now-ui-icons tech_mobile"></i>
-
-                        <p class="d-lg-none d-xl-none">Контакти</p>
-                        <ng-template #modal_mini let-c="close" let-d="dismiss">
-                            <div class="modal-body">
-                                <p>Наші контакти</p>
-                                <img src="assets/img/black sushi-kontakty.png" alt="Контакти">
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-link btn-neutral" [routerLink]="['/']"></button>
-                                <button type="button" class="btn btn-link btn-neutral" (click)="c('Close click')">
-                                    Close
-                                </button>
-                            </div>
-                        </ng-template>
+                    <a class="nav-link" rel="tooltip" title="Ми в Facebook" data-placement="bottom" target="_blank"
+                       href="https://www.facebook.com/blacksushilviv">
+                        <i class="fab fa-facebook"></i>
+                        <p class="d-lg-none d-xl-none">Facebook</p>
                     </a>
                 </li>
                 <li class="nav-item">

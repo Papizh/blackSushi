@@ -218,6 +218,7 @@
         height: 640px;
         overflow: hidden;
     }
+
     .parallax .parallax-image img {
         height: 100%;
         width: auto;
@@ -286,6 +287,7 @@
     .btn-morphing {
         margin-bottom: 10px;
     }
+
     .parallax .motto {
         top: 170px;
         margin-top: 0;
@@ -405,7 +407,7 @@
     text-decoration: none;
 }
 
-.section-examples a+a {
+.section-examples a + a {
     margin-top: 30px;
 }
 
@@ -413,8 +415,8 @@
     margin-top: 30px;
 }
 
-.components-page .wrapper>.header,
-.tutorial-page .wrapper>.header {
+.components-page .wrapper > .header,
+.tutorial-page .wrapper > .header {
     height: 500px;
     padding-top: 128px;
     background-size: cover;
@@ -433,10 +435,40 @@
     font-weight: 700;
 }
 
-.brand .n-logo {
-    max-width: 100px;
-    margin-bottom: 40px;
+
+
+/*.brand .n-logo {*/
+/*     padding-right: 3em;*/
+/*     max-width: 28em;*/
+/*     margin-bottom: 40px;*/
+/* }*/
+ @media (max-width: 767px) {
+     .brand .n-logo {
+         padding-right: 3em;
+         max-width: 28em;
+         margin-bottom: 80px;
+     }
 }
+@media (min-width: 768px) and (max-width: 991px) {
+    .brand .n-logo {
+        max-width: 47em;
+    }
+}
+@media (min-width: 991px) and (max-width: 1199px) {
+    .brand .n-logo {
+        margin-top: 2em;
+        max-width: 47em;
+        margin-right: 5em;
+    }
+}
+@media (min-width: 1200px) {
+    .brand .n-logo {
+        margin-top: 3em;
+        max-width: 60em;
+        margin-right: 5em;
+    }
+}
+
 
 .invision-logo {
     max-width: 70px;

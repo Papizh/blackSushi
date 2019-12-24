@@ -11,7 +11,7 @@
         <td mat-cell *matCellDef="let order">
           <div *ngIf="order.shoppingCartItems.length > 1; else singleItem">
             <span *ngIf="order === expandedOrder">v</span>
-            <span *ngIf="order !== expandedOrder">></span>
+            <span *ngIf="order !== expandedOrder"></span>
             &nbsp;{{ order.shoppingCartItems.length }} different products, {{ countItems(order) }} items
           </div>
           <ng-template #singleItem>

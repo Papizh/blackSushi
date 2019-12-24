@@ -39,6 +39,7 @@
             #telField="ngModel"
             type="text"
             matInput
+            minlength="10" maxlength="13"
             placeholder="Номер телефону"
             [(ngModel)]="address.addressLines[1]"
             name="addressLine2"
@@ -46,9 +47,10 @@
             required
         />
         <mat-error *ngIf="telField.invalid && telField.errors['required']">
-           Номер телефону є обовязковий
+            Номер телефону є обовязковий
         </mat-error>
     </mat-form-field>
-    <button *ngIf="!isReadOnly" style="background-color: black; color: white;" mat-flat-button type="submit" [disabled]="!addressForm.form.valid"> Підтвердити замовлення
+    <button *ngIf="!isReadOnly" style="background-color: black; color: white;" mat-flat-button type="submit"
+            [disabled]="!addressForm.form.valid"> Підтвердити замовлення
     </button>
 </form>

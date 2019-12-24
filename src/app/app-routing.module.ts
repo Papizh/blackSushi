@@ -28,18 +28,14 @@ const routes: Routes = [
     {path: 'admin/products/new', component: ProductFormComponent},
     {path: 'admin/products/:id', component: ProductFormComponent},
     {path: 'admin/products', component: AdminProductsComponent},
-    {
-        path: 'admin/orders', component: AdminOrdersComponent,
-    }
+    {path: 'admin/orders', component: AdminOrdersComponent}
 ];
 
 @NgModule({
     imports: [
         CommonModule,
         BrowserModule,
-        RouterModule.forRoot(routes, {
-            onSameUrlNavigation: 'reload'
-        })
+        RouterModule.forRoot(routes, {})
     ],
     exports: [],
 })

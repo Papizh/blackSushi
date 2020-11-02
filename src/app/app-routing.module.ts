@@ -23,6 +23,7 @@ const routes: Routes = [
     {path: 'shopping-cart', component: ShoppingCartComponent},
     {path: 'check-out', component: CheckOutComponent},
     {path: 'order-success', component: OrderSuccessComponent},
+    {path: 'order-review', component: OrderReviewComponent},
     {path: 'my-orders', component: MyOrdersComponent},
     {path: 'my-orders/:id', component: OrderReviewComponent},
     {path: 'admin/products/new', component: ProductFormComponent},

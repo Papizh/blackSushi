@@ -12,6 +12,7 @@ import {AngularFireModule} from '@angular/fire';
 import {environment} from '../environments/environment';
 import {HttpClientModule} from '@angular/common/http';
 import {MaterialModule} from './material/material.module';
+import {Ng4LoadingSpinnerModule} from 'ng4-loading-spinner';
 @NgModule({
     declarations: [
         AppComponent,
@@ -28,6 +29,7 @@ import {MaterialModule} from './material/material.module';
         ComponentsModule,
         AngularFireModule.initializeApp(environment.firebase),
         MaterialModule,
+        Ng4LoadingSpinnerModule
     ],
     bootstrap: [AppComponent]
 })

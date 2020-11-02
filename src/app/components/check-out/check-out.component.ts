@@ -62,7 +62,6 @@ export class CheckOutComponent implements OnDestroy {
         const order = new Order();
         order.address = address;
         order.shoppingCartItems = this.itemsSubject.value;
-        order.user = this.appUser;
         order.date = new Date();
 
         const docRef = await this.orderService.create(order);

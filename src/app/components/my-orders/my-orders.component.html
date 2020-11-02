@@ -1,8 +1,5 @@
 <div class="container">
   <h2 class="mt0">My Orders</h2>
-  <div *ngIf="!dataSource.data || dataSource.data.length === 0; else ordersTable">
-    <p>You have no orders yet.</p>
-  </div>
   <ng-template #ordersTable>
     <!-- TODO: set all columns width to either a fixed size or a percentage -->
     <table mat-table [dataSource]="dataSource" multiTemplateDataRows matSort>

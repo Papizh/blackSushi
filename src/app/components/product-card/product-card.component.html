@@ -9,29 +9,24 @@
   </mat-card-header>
 
   <img [src]="imageUrl" alt="" />
-
-  <mat-card-content style="margin-left: 5%">
-    {{ price }} грн
-  </mat-card-content>
+  <div>
+    <mat-card-content style="margin-left: 5%">
+      {{ price }} грн
+    </mat-card-content>
+    <mat-card-content>Грам</mat-card-content>
+  </div>
 
   <mat-card-actions *ngIf="!isAdminPreview">
-    <div style="text-align: center" fxLayoutAlign="center center" >
-      <button
-        *ngIf="item.quantity === 0; else quantityArea"
-        style="background-color: black; color: white;margin-bottom: 5px;margin-left: 22%;"
-        mat-flat-button
-        (click)="addToCart()"
-      >
+    <div style="text-align: center" fxLayoutAlign="center center">
+      <button *ngIf="item.quantity === 0; else quantityArea"
+        style="background-color: black; color: white;margin-bottom: 5px;margin-left: 22%;" mat-flat-button
+        (click)="addToCart()">
         Добавити в корзину
       </button>
 
       <ng-template #quantityArea>
-        <app-quantity-selector
-          [item]="item"
-          [suffixText]="'в корзині'"
-          (quantityPlusOne)="addToCart()"
-          (quantityMinusOne)="removeFromCart()"
-        ></app-quantity-selector>
+        <app-quantity-selector [item]="item" [suffixText]="'в корзині'" (quantityPlusOne)="addToCart()"
+          (quantityMinusOne)="removeFromCart()"></app-quantity-selector>
       </ng-template>
     </div>
   </mat-card-actions>

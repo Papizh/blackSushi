@@ -35,7 +35,6 @@ export class OrderReviewComponent implements OnDestroy {
     if (this.orderSubscription) {
       this.orderSubscription.unsubscribe();
     }
-
     this.itemsSubject.complete();
     this.addressSubject.complete();
   }

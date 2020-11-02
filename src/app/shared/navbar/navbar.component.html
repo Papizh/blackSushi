@@ -16,8 +16,8 @@
                 Black Sushi & Pizza
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler"
-                    aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation"
-                    (click)="sidebarToggle()">
+                aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation"
+                (click)="sidebarToggle()">
                 <span class="navbar-toggler-bar bar1"></span>
                 <span class="navbar-toggler-bar bar2"></span>
                 <span class="navbar-toggler-bar bar3"></span>
@@ -25,6 +25,9 @@
         </div>
         <div class="collapse navbar-collapse" data-nav-image="assets/img/blurred-image-1.jpg" data-color="orange">
             <ul class="navbar-nav ml-auto">
+                <li class="nav-item tel">
+                    <a class="nav-link m-0"><span>Графік роботи:</span> 12:00-22:00</a>
+                </li>
                 <li class="nav-item tel">
                     <a class="nav-link m-0" href="tel:+380630494941">(063) 049-49-41</a>
                 </li>
@@ -38,9 +41,8 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" [matBadge]="numberInCart"
-                       [matBadgeHidden]="numberInCart < 1"
-                       [routerLink]="['/shopping-cart']">
+                    <a class="nav-link" [matBadge]="numberInCart" [matBadgeHidden]="numberInCart < 1"
+                        [routerLink]="['/shopping-cart']">
                         <i class="now-ui-icons shopping_cart-simple"></i>
                         <p class="d-lg-none d-xl-none">Корзина</p>
                     </a>
@@ -48,14 +50,14 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" rel="tooltip" title="Ми в Facebook" data-placement="bottom" target="_blank"
-                       href="https://www.facebook.com/blacksushilviv">
+                        href="https://www.facebook.com/blacksushilviv">
                         <i class="fab fa-facebook"></i>
                         <p class="d-lg-none d-xl-none">Facebook</p>
                     </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" rel="tooltip" title="Ми в Instagram " data-placement="bottom"
-                       href="https://www.instagram.com/black_sushi_lviv" target="_blank">
+                        href="https://www.instagram.com/black_sushi_lviv" target="_blank">
                         <i class="fab fa-instagram"></i>
                         <p class="d-lg-none d-xl-none">Instagram</p>
                     </a>

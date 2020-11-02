@@ -1,6 +1,7 @@
-import {Component, OnInit, Renderer, OnDestroy} from '@angular/core';
-import {NgbDateStruct} from '@ng-bootstrap/ng-bootstrap';
-import {NgbAccordionConfig} from '@ng-bootstrap/ng-bootstrap';
+import { Component, OnInit, Renderer, OnDestroy } from '@angular/core';
+import { NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
+import { NgbAccordionConfig } from '@ng-bootstrap/ng-bootstrap';
+import { Ng4LoadingSpinnerService } from 'ng4-loading-spinner';
 import * as Rellax from 'rellax';
 
 @Component({
@@ -26,7 +27,8 @@ export class ComponentsComponent implements OnInit, OnDestroy {
 
     state_icon_primary = true;
 
-    constructor(private renderer: Renderer, config: NgbAccordionConfig) {
+    constructor(private renderer: Renderer, config: NgbAccordionConfig,
+        private ng4LoadingSpinnerService: Ng4LoadingSpinnerService) {
         config.closeOthers = true;
         config.type = 'info';
     }

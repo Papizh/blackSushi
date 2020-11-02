@@ -94,7 +94,7 @@
 }
 
 #notifications {
-    background-color: #FFFFFF;
+    background-color: #ffffff;
     display: block;
     width: 100%;
     position: relative;
@@ -117,7 +117,7 @@
 }
 
 .txt-white {
-    color: #FFFFFF;
+    color: #ffffff;
 }
 
 .txt-gray {
@@ -144,7 +144,7 @@
 
 .logo-container .brand {
     font-size: 16px;
-    color: #FFFFFF;
+    color: #ffffff;
     line-height: 18px;
     float: left;
     margin-left: 10px;
@@ -225,7 +225,6 @@
     }
 }
 
-
 /*.separator{
     content: "Separator";
     color: #FFFFFF;
@@ -296,9 +295,7 @@
     }
 }
 
-
 /*       Loading dots  */
-
 
 /*      transitions */
 
@@ -307,10 +304,10 @@
 .presentation .front .btn,
 .logo-container .logo,
 .logo-container .brand {
-    -webkit-transition: all .2s;
-    -moz-transition: all .2s;
-    -o-transition: all .2s;
-    transition: all .2s;
+    -webkit-transition: all 0.2s;
+    -moz-transition: all 0.2s;
+    -o-transition: all 0.2s;
+    transition: all 0.2s;
 }
 
 #images h4 {
@@ -320,7 +317,6 @@
 #javascriptComponents {
     padding-bottom: 0;
 }
-
 
 /*      layer animation          */
 
@@ -350,7 +346,7 @@
 }
 
 .navbar-transparent.navbar-small .logo-container .brand {
-    color: #FFFFFF;
+    color: #ffffff;
 }
 
 .navbar-default.navbar-small .logo-container .brand {
@@ -384,7 +380,7 @@
 }
 
 .section-tabs {
-    background: #EEEEEE;
+    background: #eeeeee;
 }
 
 .section-pagination {
@@ -425,7 +421,7 @@
 
 .components-page .title,
 .tutorial-page .title {
-    color: #FFFFFF;
+    color: #ffffff;
 }
 
 .brand .h1-seo {
@@ -435,40 +431,38 @@
     font-weight: 700;
 }
 
-
-
 /*.brand .n-logo {*/
 /*     padding-right: 3em;*/
 /*     max-width: 28em;*/
 /*     margin-bottom: 40px;*/
 /* }*/
- @media (max-width: 767px) {
-     .brand .n-logo {
-         padding-right: 3em;
-         max-width: 28em;
-         margin-bottom: 80px;
-     }
+@media (max-width: 767px) {
+    .brand .n-logo {
+        padding-right: 3em;
+        max-width: 28em;
+        margin-top: 13em;
+    }
 }
 @media (min-width: 768px) and (max-width: 991px) {
     .brand .n-logo {
+        margin-top: 36em;
         max-width: 47em;
     }
 }
 @media (min-width: 991px) and (max-width: 1199px) {
     .brand .n-logo {
-        margin-top: 2em;
+        margin-top: 5em;
         max-width: 47em;
         margin-right: 5em;
     }
 }
 @media (min-width: 1200px) {
     .brand .n-logo {
-        margin-top: 3em;
+        margin-top: 13em;
         max-width: 60em;
         margin-right: 5em;
     }
 }
-
 
 .invision-logo {
     max-width: 70px;

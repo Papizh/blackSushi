@@ -1,5 +1,5 @@
 {
-  "name": "blackSushi",
+  "name": "blacksushi",
   "version": "1.1.0",
   "scripts": {
     "ng": "ng",
@@ -40,7 +40,7 @@
     "ng2-nouislider": "1.7.13",
     "ng2-page-scroll": "^4.0.0-beta.12",
     "ng2-validation": "^4.2.0",
-    "ng4-loading-spinner": "^1.2.3",
+    "ngx-spinner": "^10.0.1",
     "node-sass": "^4.14.1",
     "nouislider": "9.2.0",
     "popper.js": "1.14.7",

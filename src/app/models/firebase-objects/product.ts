@@ -8,4 +8,6 @@ export class Product implements FirebaseObject {
   categoryId: string;
   category?: Category;
   imageUrl: string;
+  weight: number;
+  description: string;
 }

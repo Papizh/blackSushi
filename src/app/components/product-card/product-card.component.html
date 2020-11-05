@@ -9,18 +9,18 @@
   </mat-card-header>
 
   <img [src]="imageUrl" alt="" />
-  <div>
-    <mat-card-content style="margin-left: 5%">
-      {{ price }} грн
+  <div class="styleDescription">{{ description }}</div>
+  <div class="styleContainer">
+    <mat-card-content class="styleFontSize">
+      {{ price }}грн
     </mat-card-content>
-    <mat-card-content>Грам</mat-card-content>
+    <mat-card-content class="styleFontSize">{{ weight }}г</mat-card-content>
   </div>
 
   <mat-card-actions *ngIf="!isAdminPreview">
     <div style="text-align: center" fxLayoutAlign="center center">
       <button *ngIf="item.quantity === 0; else quantityArea"
-        style="background-color: black; color: white;margin-bottom: 5px;margin-left: 22%;" mat-flat-button
-        (click)="addToCart()">
+        style="background-color: black; color: white;margin-bottom: 5px;" mat-flat-button (click)="addToCart()">
         Добавити в корзину
       </button>
 

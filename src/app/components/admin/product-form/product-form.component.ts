@@ -5,10 +5,10 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { take } from 'rxjs/operators';
 import { FormControl, Validators, FormGroup } from '@angular/forms';
 import { CustomValidators } from 'ng2-validation';
-import {Category} from 'app/models/firebase-objects/category.interface';
-import {Product} from '../../../models/firebase-objects/product';
-import {CategoryService} from '../../../services/category.service';
-import {ProductService} from '../../../services/product.service';
+import { Category } from 'app/models/firebase-objects/category.interface';
+import { Product } from '../../../models/firebase-objects/product';
+import { CategoryService } from '../../../services/category.service';
+import { ProductService } from '../../../services/product.service';
 
 @Component({
   selector: 'app-product-form',
@@ -23,7 +23,9 @@ export class ProductFormComponent implements OnDestroy {
 
   productForm = new FormGroup({
     titleControl: new FormControl('', [Validators.required]),
+    descriptionControl: new FormControl('', [Validators.required]),
     priceControl: new FormControl('', [Validators.required, Validators.min(0)]),
+    weightControl: new FormControl('', [Validators.required, Validators.min(0)]),
     categoryControl: new FormControl('', [Validators.required]),
     imageUrlControl: new FormControl('', [
       Validators.required,
@@ -37,6 +39,12 @@ export class ProductFormComponent implements OnDestroy {
 
   get priceControl(): FormControl {
     return this.productForm.get('priceControl') as FormControl;
+  }
+  get weightControl(): FormControl {
+    return this.productForm.get('weightControl') as FormControl;
+  }
+  get descriptionControl(): FormControl {
+    return this.productForm.get('descriptionControl') as FormControl;
   }
 
   get categoryControl(): FormControl {
@@ -74,7 +82,9 @@ export class ProductFormComponent implements OnDestroy {
             this.product.category = this.getCategoryById(product.categoryId);
 
             this.productForm.get('titleControl').setValue(product.title);
+            this.productForm.get('descriptionControl').setValue(product.description)
             this.productForm.get('priceControl').setValue(product.price);
+            this.productForm.get('weightControl').setValue(product.weight)
             this.productForm
               .get('categoryControl')
               .setValue(product.categoryId);
@@ -100,6 +110,8 @@ export class ProductFormComponent implements OnDestroy {
     this.product.categoryId = this.categoryControl.value;
     this.product.category = this.getCategoryById(this.categoryControl.value);
     this.product.price = this.priceControl.value;
+    this.product.weight = this.weightControl.value;
+    this.product.description = this.descriptionControl.value
 
     this.product.imageUrl = this.imageUrlControl.valid
       ? this.imageUrlControl.value
@@ -110,8 +122,10 @@ export class ProductFormComponent implements OnDestroy {
     const productToSave: Product = {
       title: this.product.title,
       price: this.product.price,
+      weight: this.product.weight,
       categoryId: this.product.categoryId,
       imageUrl: this.product.imageUrl,
+      description: this.product.description
     };
 
     if (this.product.id) {
@@ -138,9 +152,8 @@ export class ProductFormComponent implements OnDestroy {
     }
 
     if (control.hasError('min')) {
-      return `${fieldName} must have a minimum value of ${
-        control.errors.min.min
-      }`;
+      return `${fieldName} must have a minimum value of ${control.errors.min.min
+        }`;
     }
 
     if (control.hasError('url')) {

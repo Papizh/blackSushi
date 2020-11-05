@@ -1,8 +1,8 @@
 import { Component, OnInit, Input, OnDestroy, OnChanges } from '@angular/core';
 import { Subscription } from 'rxjs';
-import {Product} from '../../models/firebase-objects/product';
-import {ShoppingCartItem} from '../../models/firebase-objects/shopping-cart-item.interface';
-import {ShoppingCartService} from '../../services/shopping-cart.service';
+import { Product } from '../../models/firebase-objects/product';
+import { ShoppingCartItem } from '../../models/firebase-objects/shopping-cart-item.interface';
+import { ShoppingCartService } from '../../services/shopping-cart.service';
 @Component({
   selector: 'app-product-card',
   templateUrl: './product-card.component.html',
@@ -37,7 +37,13 @@ export class ProductCardComponent implements OnDestroy, OnChanges {
   get price() {
     return this.item.product ? this.item.product.price || '0' : '0';
   }
+  get weight() {
+    return this.item.product ? this.item.product.weight || '0' : '0';
+  }
 
+  get description() {
+    return this.item.product ? this.item.product.description || '' : ''
+  }
   constructor(private cartService: ShoppingCartService) {
     this.item = {
       product: {
@@ -45,6 +51,8 @@ export class ProductCardComponent implements OnDestroy, OnChanges {
         title: null,
         price: null,
         imageUrl: null,
+        weight: null,
+        description: null
       },
       quantity: 0,
     };

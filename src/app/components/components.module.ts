@@ -34,7 +34,7 @@ import {AngularFirestoreModule} from '@angular/fire/firestore';
 import {AngularFireAuthModule} from '@angular/fire/auth';
 import {AngularFireStorageModule} from '@angular/fire/storage';
 import {Ng2PageScrollModule} from 'ng2-page-scroll';
-import {Ng4LoadingSpinnerModule} from 'ng4-loading-spinner';
+
 
 @NgModule({
     imports: [
@@ -51,7 +51,6 @@ import {Ng4LoadingSpinnerModule} from 'ng4-loading-spinner';
         AngularFirestoreModule,
         AngularFireAuthModule,
         AngularFireStorageModule,
-        Ng4LoadingSpinnerModule.forRoot()
     ],
     declarations: [
         ComponentsComponent,

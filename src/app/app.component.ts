@@ -5,7 +5,7 @@ import 'rxjs/add/operator/filter';
 import { DOCUMENT } from '@angular/platform-browser';
 import { LocationStrategy, PlatformLocation, Location } from '@angular/common';
 import { NavbarComponent } from './shared/navbar/navbar.component';
-import { Ng4LoadingSpinnerService } from 'ng4-loading-spinner';
+import { NgxSpinnerService } from 'ngx-spinner/lib/ngx-spinner.service';
 
 @Component({
     selector: 'app-root',
@@ -21,12 +21,14 @@ export class AppComponent implements OnInit {
         private document: any,
         private element: ElementRef,
         public location: Location,
-        private ng4LoadingSpinnerService: Ng4LoadingSpinnerService) {
+
+    ) {
     }
 
     ngOnInit() {
 
-        this.startLoadingSpinner();
+
+
         var navbar: HTMLElement = this.element.nativeElement.children[0].children[0];
         this._router = this.router.events.filter(event => event instanceof NavigationEnd).subscribe((event: NavigationEnd) => {
             if (window.outerWidth > 1500) {
@@ -49,15 +51,6 @@ export class AppComponent implements OnInit {
                 }
             });
         });
-    }
-
-    startLoadingSpinner() {
-        this.ng4LoadingSpinnerService.show();
-
-        setTimeout(function () {
-            this.ng4LoadingSpinnerService.hide();
-        }.bind(this), 1500);
-        console.log("app component")
     }
 
 }

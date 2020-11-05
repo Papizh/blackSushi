@@ -1,8 +1,8 @@
 import { Component, OnInit, OnDestroy, ViewChild } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { MatTableDataSource, MatPaginator, MatSort } from '@angular/material';
-import {ProductService} from '../../../services/product.service';
-import {Product} from '../../../models/firebase-objects/product';
+import { ProductService } from '../../../services/product.service';
+import { Product } from '../../../models/firebase-objects/product';
 
 @Component({
   selector: 'app-admin-products',
@@ -10,7 +10,7 @@ import {Product} from '../../../models/firebase-objects/product';
   styleUrls: ['./admin-products.component.scss'],
 })
 export class AdminProductsComponent implements OnInit, OnDestroy {
-  columnsToDisplay = ['title', 'category', 'price', 'edit'];
+  columnsToDisplay = ['title', 'category', 'price', 'weight', 'edit'];
   fieldsToFilter = ['title', 'category', 'price'];
   dataSource: MatTableDataSource<Product>;
   subscription: Subscription;

@@ -7,7 +7,7 @@ import { Product } from '../../models/firebase-objects/product';
 import { CategoryService } from '../../services/category.service';
 import { ProductService } from '../../services/product.service';
 import { ShoppingCartItem } from '../../models/firebase-objects/shopping-cart-item.interface';
-import { Ng4LoadingSpinnerService } from 'ng4-loading-spinner';
+
 
 @Component({
   selector: 'app-home',
@@ -22,7 +22,6 @@ export class HomeComponent implements OnDestroy {
   queryParamsSubscription: Subscription;
 
   constructor(
-    private ng4LoadingSpinnerService: Ng4LoadingSpinnerService,
     private categoryService: CategoryService,
     private productService: ProductService,
     private router: Router,
@@ -51,19 +50,9 @@ export class HomeComponent implements OnDestroy {
   }
 
   onSelectedCategoryChange() {
-    this.startLoadingSpinner();
     const queryParams = this.selectedCategoryId
       ? { category: this.selectedCategoryId }
       : null;
     this.router.navigate([], { queryParams: queryParams, });
-
-  }
-
-  startLoadingSpinner() {
-    this.ng4LoadingSpinnerService.show();
-
-    setTimeout(function () {
-      this.ng4LoadingSpinnerService.hide();
-    }.bind(this), 1000);
   }
 }

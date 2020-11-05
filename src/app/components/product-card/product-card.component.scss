@@ -3,7 +3,19 @@ mat-card {
 
   img {
     width: 275px;
-    height: 275px;
+    height: 200px;
     object-fit: contain;
   }
+}
+.styleContainer {
+  font-size: 18px;
+  display: flex;
+  justify-content: space-between;
+}
+.styleDescription {
+  padding-bottom: 1rem;
+  text-align: center;
+}
+.styleFontSize {
+  font-size: 18px;
 }

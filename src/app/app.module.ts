@@ -12,6 +12,7 @@ import { AngularFireModule } from '@angular/fire';
 import { environment } from '../environments/environment';
 import { HttpClientModule } from '@angular/common/http';
 import { MaterialModule } from './material/material.module';
+import { NgxSpinnerModule } from 'ngx-spinner';
 
 
 @NgModule({
@@ -20,6 +21,7 @@ import { MaterialModule } from './material/material.module';
         NavbarComponent
     ],
     imports: [
+        NgxSpinnerModule,
         HttpClientModule,
         BrowserAnimationsModule,
         NgbModule.forRoot(),
@@ -31,7 +33,7 @@ import { MaterialModule } from './material/material.module';
         AngularFireModule.initializeApp(environment.firebase),
         MaterialModule,
     ],
-
+    schemas: [CUSTOM_ELEMENTS_SCHEMA],
     bootstrap: [AppComponent]
 })
 export class AppModule { }

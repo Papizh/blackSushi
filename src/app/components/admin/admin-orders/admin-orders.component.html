@@ -1,0 +1,15 @@
+<div class="container">
+    Наші замовлення
+    <div class="section margin">
+        <div>
+
+            <div style="margin-top: 100px;" *ngFor="let order of orders">
+                <div>{{order.date|date }}</div>
+
+                <div *ngFor="let item of order.shoppingCartItems">
+                    {{ item.product.title}}
+                </div>
+            </div>
+            <hr>
+        </div>
+    </div>

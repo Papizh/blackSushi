@@ -1,14 +1,12 @@
-<div
-  fxLayout="column"
-  fxLayoutAlign="start stretch"
-  fxLayoutGap="32px"
->
+<div fxLayout="column" fxLayoutAlign="start stretch" fxLayoutGap="32px">
   <p *ngIf="totalQuantity === 1">Це замовлення складається з 1 товару</p>
   <p *ngIf="totalQuantity > 1">Це замовлення складається з {{ totalQuantity }} товарів.</p>
 
   <table mat-table [dataSource]="dataSource">
     <ng-container matColumnDef="quantityAndName">
-      <td mat-cell *matCellDef="let item">{{ item.quantity}}x {{ item.product.title }}</td>
+      <td mat-cell *matCellDef="let item">{{ item.quantity}} x {{ item.product.category.name }} -
+        {{ item.product.title }}
+      </td>
       <td mat-footer-cell *matFooterCellDef>Загалом</td>
     </ng-container>
 

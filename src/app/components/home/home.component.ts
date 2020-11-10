@@ -7,6 +7,7 @@ import { Product } from '../../models/firebase-objects/product';
 import { CategoryService } from '../../services/category.service';
 import { ProductService } from '../../services/product.service';
 import { ShoppingCartItem } from '../../models/firebase-objects/shopping-cart-item.interface';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 
 @Component({
@@ -22,6 +23,7 @@ export class HomeComponent implements OnDestroy {
   queryParamsSubscription: Subscription;
 
   constructor(
+    private spinner: NgxSpinnerService,
     private categoryService: CategoryService,
     private productService: ProductService,
     private router: Router,
@@ -50,6 +52,12 @@ export class HomeComponent implements OnDestroy {
   }
 
   onSelectedCategoryChange() {
+    this.spinner.show();
+
+    setTimeout(() => {
+      /** spinner ends after 5 seconds */
+      this.spinner.hide();
+    }, 1000);
     const queryParams = this.selectedCategoryId
       ? { category: this.selectedCategoryId }
       : null;

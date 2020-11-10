@@ -1,26 +1,26 @@
 <div class="section">
     <div class="container margin">
         <h2 class="textCenter">Корзина</h2>
-        <div fxLayout="column"
-             fxLayoutAlign="space-between stretch"
-             fxLayoutGap="32px">
+        <div fxLayout="column" fxLayoutAlign="space-between stretch" fxLayoutGap="32px">
             <p *ngIf="!totalQuantity">Ваша корзина пуста, зробіть будь ласка замовлення</p>
             <button *ngIf="!totalQuantity" style="background-color: black; color: white;" mat-flat-button
-                    routerLink="/home">Головна
+                routerLink="/home">Головна
             </button>
-            <p class="textCenter" *ngIf="totalQuantity === 1">Ви обрали 1 продукт.</p>
-            <p class="textCenter" *ngIf="totalQuantity >2<5">Ви обрали {{totalQuantity}}  продуктів.</p>
-
             <div class="padingTable" *ngIf="totalQuantity > 0">
                 <table mat-table [dataSource]="dataSource">
                     <ng-container matColumnDef="productImage">
                         <th mat-header-cell *matHeaderCellDef></th>
                         <td mat-cell *matCellDef="let item">
-                            <img [src]="item.product.imageUrl" alt="Product image"/>
+                            <img [src]="item.product.imageUrl" alt="Product image" />
                         </td>
                         <td mat-footer-cell *matFooterCellDef></td>
                     </ng-container>
 
+                    <ng-container matColumnDef="categoryName" >
+                        <th mat-header-cell *matHeaderCellDef>Категорія</th>
+                        <td mat-cell *matCellDef="let item">{{ item.product.category.name }}</td>
+                        <td mat-footer-cell *matFooterCellDef></td>
+                    </ng-container>
                     <ng-container matColumnDef="productName">
                         <th mat-header-cell *matHeaderCellDef>Назва</th>
                         <td mat-cell *matCellDef="let item">{{ item.product.title }}</td>
@@ -29,12 +29,9 @@
 
                     <ng-container matColumnDef="quantity">
                         <th mat-header-cell *matHeaderCellDef>Кількість</th>
-                        <td mat-cell *matCellDef="let item">
-                            <app-quantity-selector
-                                    [item]="item"
-                                    (quantityPlusOne)="onQuantityPlusOne(item)"
-                                    (quantityMinusOne)="onQuantityMinusOne(item)"
-                            ></app-quantity-selector>
+                        <td mat-cell *matCellDef="let item" class="margin20px">
+                            <app-quantity-selector [item]="item" (quantityPlusOne)="onQuantityPlusOne(item)"
+                                (quantityMinusOne)="onQuantityMinusOne(item)"></app-quantity-selector>
                         </td>
                         <td mat-footer-cell *matFooterCellDef>{{ totalQuantity }}</td>
                     </ng-container>
@@ -54,7 +51,7 @@
 
                 <div class="padingMobile" fxLayout="row" fxLayoutAlign="end center">
                     <button routerLink="/check-out" style="background-color: black; color: white; margin-top: 5px;"
-                            mat-flat-button>Замовити
+                        mat-flat-button>Замовити
                     </button>
                 </div>
             </div>

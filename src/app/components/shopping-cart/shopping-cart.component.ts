@@ -13,7 +13,7 @@ import {Router} from '@angular/router';
     styleUrls: ['./shopping-cart.component.scss'],
 })
 export class ShoppingCartComponent implements OnInit, OnDestroy {
-    columnsToDisplay = ['productImage', 'productName', 'quantity', 'price'];
+    columnsToDisplay = ['productImage','categoryName', 'productName', 'quantity', 'price'];
     dataSource: MatTableDataSource<ShoppingCartItem>;
     itemsSubscription: Subscription;
     totalPrice: number;

@@ -1,6 +1,12 @@
-.menu{
+.menu {
   font-size: 1.8em;
   font-weight: 600;
-  text-align:center!important;
+  text-align: center !important;
   color: #000;
+}
+.styleFlex {
+  display: flex;
+}
+.container-left {
+  background: chartreuse;
 }

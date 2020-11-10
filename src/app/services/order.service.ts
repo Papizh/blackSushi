@@ -4,7 +4,6 @@ import { map } from 'rxjs/operators';
 import { Order } from '../models/firebase-objects/order';
 import { FirebaseCollection } from './firebase-collection';
 import { Observable } from 'rxjs';
-import { getOrderObservables } from '@angular/fire/database-deprecated';
 
 @Injectable({
     providedIn: 'root',
@@ -12,6 +11,7 @@ import { getOrderObservables } from '@angular/fire/database-deprecated';
 export class OrderService extends FirebaseCollection<Order> {
     constructor(db: AngularFirestore) {
         super(db, '/orders');
+
     }
 
     getAllForUser(): Observable<Order[]> {
@@ -19,4 +19,11 @@ export class OrderService extends FirebaseCollection<Order> {
             .getAll()
             .pipe(map(orders => orders.filter(orders => console.log(orders))));
     }
+    getOrders() {
+        return this.db.collection('orders').valueChanges();
+    }
+
+
+
 }
+

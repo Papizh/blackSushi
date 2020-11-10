@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, OnDestroy, OnChanges } from '@angular/core';
+import { Component, OnInit, Input, OnDestroy, OnChanges, ElementRef } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { Product } from '../../models/firebase-objects/product';
 import { ShoppingCartItem } from '../../models/firebase-objects/shopping-cart-item.interface';
@@ -13,6 +13,7 @@ export class ProductCardComponent implements OnDestroy, OnChanges {
   @Input() isAdminPreview: true;
   item: ShoppingCartItem;
   cartItemSubscription: Subscription;
+
 
   get title() {
     return this.product ? this.product.title || 'Title' : 'Title';
@@ -44,7 +45,12 @@ export class ProductCardComponent implements OnDestroy, OnChanges {
   get description() {
     return this.item.product ? this.item.product.description || '' : ''
   }
-  constructor(private cartService: ShoppingCartService) {
+
+
+
+  constructor(
+    private cartService: ShoppingCartService,
+  ) {
     this.item = {
       product: {
         categoryId: null,
@@ -58,6 +64,7 @@ export class ProductCardComponent implements OnDestroy, OnChanges {
     };
   }
 
+
   async ngOnChanges() {
     await this.cartService.initialize();
     this.item.product = this.product;
@@ -68,8 +75,14 @@ export class ProductCardComponent implements OnDestroy, OnChanges {
         cartItem => (this.item.quantity = cartItem.quantity || 0)
       );
     }
+
   }
 
+  clickOnDescription() {
+    let el = document.getElementById("description");
+    console.log(el.style);
+    el.style.display = 'block';
+  }
   ngOnDestroy() {
     if (this.cartItemSubscription) {
       this.cartItemSubscription.unsubscribe();
@@ -86,4 +99,5 @@ export class ProductCardComponent implements OnDestroy, OnChanges {
     this.item.quantity -= 1;
     this.cartService.removeFromCart(this.item.product.id);
   }
+
 }

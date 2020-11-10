@@ -1,4 +1,4 @@
-<mat-card style="max-width: 320px;margin: 20px">
+<mat-card class="styleCard">
   <mat-card-header>
     <mat-card-title>
       {{ title }}
@@ -9,7 +9,7 @@
   </mat-card-header>
 
   <img [src]="imageUrl" alt="" />
-  <div class="styleDescription">{{ description }}</div>
+  <div class="styleDescription" id="description" (click)="clickOnDescription()">{{ description }}</div>
   <div class="styleContainer">
     <mat-card-content class="styleFontSize">
       {{ price }}грн

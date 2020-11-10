@@ -1,49 +1,25 @@
 import {
     Component,
-    OnDestroy,
     ViewChild,
     AfterViewChecked, OnInit,
 } from '@angular/core';
 import { MatPaginator, MatSort, MatTableDataSource } from '@angular/material';
 import { Subscription } from 'rxjs';
-
-import {
-    trigger,
-    state,
-    style,
-    transition,
-    animate,
-} from '@angular/animations';
 import { Order } from '../../models/firebase-objects/order';
 import { OrderService } from '../../services/order.service';
 
 @Component({
     selector: 'app-my-orders',
     templateUrl: './my-orders.component.html',
-    styleUrls: ['./my-orders.component.scss'],
-    animations: [
-        trigger('detailExpand', [
-            state(
-                'collapsed',
-                style({ height: '0px', minHeight: '0', display: 'none' })
-            ),
-            state('expanded', style({ height: '*' })),
-            transition(
-                'expanded <=> collapsed',
-                animate('225ms cubic-bezier(0.4, 0.0, 0.2, 1)')
-            ),
-        ]),
-    ],
+    styleUrls: ['./my-orders.component.scss']
+
 })
-export class MyOrdersComponent implements OnInit, OnDestroy, AfterViewChecked {
-    columnsToDisplay = ['products', 'totalPrice', 'date', 'link'];
+export class MyOrdersComponent implements OnInit, AfterViewChecked {
+    columnsToDisplay = ['products', 'totalPrice', 'date'];
     fieldsToFilter = ['products', 'date', 'link'];
     dataSource: MatTableDataSource<Order>;
-    authSubscription: Subscription;
     ordersSubscription: Subscription;
     filterValue: string;
-    expandedOrder: Order | null; // TODO: really necessary? can't any object be null implicitly?
-
     @ViewChild(MatPaginator) paginator: MatPaginator;
     @ViewChild(MatSort) sort: MatSort;
 
@@ -53,12 +29,13 @@ export class MyOrdersComponent implements OnInit, OnDestroy, AfterViewChecked {
         this.orderService.getAllForUser()
             .subscribe(orders => {
                 this.dataSource.data = orders;
-                console.log('2')
             });
     };
 
-    ngOnInit(): void {
-        this.orderService.getAllForUser();
+    ngOnInit() {
+        let orders = this.orderService.getOrders();
+        console.log(orders);
+
     }
 
     ngAfterViewChecked() {
@@ -71,43 +48,34 @@ export class MyOrdersComponent implements OnInit, OnDestroy, AfterViewChecked {
         }
     }
 
-    ngOnDestroy() {
-        if (this.authSubscription) {
-            this.authSubscription.unsubscribe();
-        }
 
-        if (this.ordersSubscription) {
-            this.ordersSubscription.unsubscribe();
-        }
-    }
+    // onOrderClicked(order
+    //     :
+    //     Order
+    // ) {
+    //     if (order.shoppingCartItems.length > 1) {
+    //         this.expandedOrder = this.expandedOrder === order ? null : order;
+    //     }
+    // }
 
-    onOrderClicked(order
-        :
-        Order
-    ) {
-        if (order.shoppingCartItems.length > 1) {
-            this.expandedOrder = this.expandedOrder === order ? null : order;
-        }
-    }
+    // countItems(order
+    //     :
+    //     Order
+    // ) {
+    //     return order.shoppingCartItems.reduce(
+    //         (sum, item) => (sum += item.quantity),
+    //         0
+    //     );
+    // }
 
-    countItems(order
-        :
-        Order
-    ) {
-        return order.shoppingCartItems.reduce(
-            (sum, item) => (sum += item.quantity),
-            0
-        );
-    }
-
-    getTotalPrice(order
-        :
-        Order
-    ):
-        number {
-        return order.shoppingCartItems.reduce(
-            (sum, item) => (sum += item.quantity * item.product.price),
-            0
-        );
-    }
+    // getTotalPrice(order
+    //     :
+    //     Order
+    // ):
+    //     number {
+    //     return order.shoppingCartItems.reduce(
+    //         (sum, item) => (sum += item.quantity * item.product.price),
+    //         0
+    //     );
+    // }
 }

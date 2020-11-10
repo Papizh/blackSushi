@@ -5,7 +5,8 @@ import 'rxjs/add/operator/filter';
 import { DOCUMENT } from '@angular/platform-browser';
 import { LocationStrategy, PlatformLocation, Location } from '@angular/common';
 import { NavbarComponent } from './shared/navbar/navbar.component';
-import { NgxSpinnerService } from 'ngx-spinner/lib/ngx-spinner.service';
+import { NgxSpinnerService } from "ngx-spinner";
+
 
 @Component({
     selector: 'app-root',
@@ -16,7 +17,9 @@ export class AppComponent implements OnInit {
     private _router: Subscription;
     @ViewChild(NavbarComponent) navbar: NavbarComponent;
 
-    constructor(private renderer: Renderer,
+    constructor(
+        private spinner: NgxSpinnerService,
+        private renderer: Renderer,
         private router: Router, @Inject(DOCUMENT)
         private document: any,
         private element: ElementRef,
@@ -26,7 +29,12 @@ export class AppComponent implements OnInit {
     }
 
     ngOnInit() {
+        this.spinner.show();
 
+        setTimeout(() => {
+            /** spinner ends after 2 seconds */
+            this.spinner.hide();
+        }, 1500);
 
 
         var navbar: HTMLElement = this.element.nativeElement.children[0].children[0];

@@ -10,11 +10,6 @@ td img {
   width: 75px;
   height: 75px;
   object-fit: cover;
-  border-radius: 50%;
-}
-
-.mat-column-quantity {
-
 }
 
 .mat-column-productImage {
@@ -23,7 +18,7 @@ td img {
 
 .mat-column-price {
   width: 100px;
-  text-align: right;
+  text-align: center;
 }
 
 .mat-header-cell {
@@ -38,6 +33,9 @@ td img {
   margin-top: 50px;
 }
 
+.margin20px {
+  margin: 20px;
+}
 .padingMobile {
   @media only screen and (min-width: 1023px) and (max-width: 2000px) {
     padding-left: 24em;
@@ -57,5 +55,4 @@ td img {
   @media only screen and (min-width: 768px) and (max-width: 1024px) {
     padding-left: 9em;
   }
-
 }

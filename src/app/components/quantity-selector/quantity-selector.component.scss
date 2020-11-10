@@ -4,3 +4,9 @@
     font-weight: bold;
   }
 }
+
+.quantity {
+  @media (min-width: 800px) {
+    margin: 20px;
+  }
+}

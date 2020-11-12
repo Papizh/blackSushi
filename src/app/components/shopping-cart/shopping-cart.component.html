@@ -1,10 +1,13 @@
 <div class="section">
+    <ngx-spinner bdColor="rgba(0,0,0,0.2)" size="large" color="#0b0909" type="ball-spin" [fullScreen]="true">
+        <p style="color: white"> Loading... </p>
+    </ngx-spinner>
     <div class="container margin">
         <h2 class="textCenter">Корзина</h2>
         <div fxLayout="column" fxLayoutAlign="space-between stretch" fxLayoutGap="32px">
             <p *ngIf="!totalQuantity">Ваша корзина пуста, зробіть будь ласка замовлення</p>
             <button *ngIf="!totalQuantity" style="background-color: black; color: white;" mat-flat-button
-                routerLink="/home">Головна
+                (click)=" backToMain()">Головна
             </button>
             <div class="padingTable" *ngIf="totalQuantity > 0">
                 <table mat-table [dataSource]="dataSource">
@@ -16,7 +19,7 @@
                         <td mat-footer-cell *matFooterCellDef></td>
                     </ng-container>
 
-                    <ng-container matColumnDef="categoryName" >
+                    <ng-container matColumnDef="categoryName">
                         <th mat-header-cell *matHeaderCellDef>Категорія</th>
                         <td mat-cell *matCellDef="let item">{{ item.product.category.name }}</td>
                         <td mat-footer-cell *matFooterCellDef></td>

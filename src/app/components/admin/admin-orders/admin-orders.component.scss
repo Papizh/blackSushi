@@ -1,3 +1,35 @@
+* {
+    font-size: 18px;
+}
 .margin {
-    margin-top: 150px;
+    margin-top: 50px;
+}
+img {
+    height: 75px;
+}
+.styleHeader {
+    display: flex;
+    justify-content: space-between;
+    margin: 5px;
+}
+
+.styleOrder {
+    padding: 5px;
+    display: flex;
+    justify-content: space-between;
+}
+.styleProduct {
+    display: flex;
+    justify-content: space-between;
+    font-size: 16px;
+    font-weight: 500;
+    padding-left: 27%;
+}
+
+.styleOrderPrice {
+    display: flex;
+    justify-content: space-between;
+}
+.itemOrder {
+    padding-top: 17px;
 }

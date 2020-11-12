@@ -26,7 +26,6 @@ import { NgxSpinnerModule } from 'ngx-spinner';
         BrowserAnimationsModule,
         NgbModule.forRoot(),
         FormsModule,
-        AppRoutingModule,
         RouterModule,
         AppRoutingModule,
         ComponentsModule,

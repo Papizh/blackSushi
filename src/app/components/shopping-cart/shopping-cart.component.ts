@@ -1,10 +1,11 @@
-import {Component, OnInit, OnDestroy} from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { interval } from 'rxjs';
-import {Subscription} from 'rxjs';
-import {MatTableDataSource} from '@angular/material';
-import {ShoppingCartService} from '../../services/shopping-cart.service';
-import {ShoppingCartItem} from '../../models/firebase-objects/shopping-cart-item.interface';
-import {Router} from '@angular/router';
+import { Subscription } from 'rxjs';
+import { MatTableDataSource } from '@angular/material';
+import { ShoppingCartService } from '../../services/shopping-cart.service';
+import { ShoppingCartItem } from '../../models/firebase-objects/shopping-cart-item.interface';
+import { Router } from '@angular/router';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 
 @Component({
@@ -13,14 +14,15 @@ import {Router} from '@angular/router';
     styleUrls: ['./shopping-cart.component.scss'],
 })
 export class ShoppingCartComponent implements OnInit, OnDestroy {
-    columnsToDisplay = ['productImage','categoryName', 'productName', 'quantity', 'price'];
+    columnsToDisplay = ['productImage', 'categoryName', 'productName', 'quantity', 'price'];
     dataSource: MatTableDataSource<ShoppingCartItem>;
     itemsSubscription: Subscription;
     totalPrice: number;
     totalQuantity: number;
 
     constructor(private cartService: ShoppingCartService,
-                private router: Router) {
+        private router: Router,
+        private spinner: NgxSpinnerService) {
         this.dataSource = new MatTableDataSource<ShoppingCartItem>();
         this.cartService.initialize().then(() => {
             this.itemsSubscription = this.cartService
@@ -89,4 +91,15 @@ export class ShoppingCartComponent implements OnInit, OnDestroy {
 
         this.updateTotals();
     }
+
+    backToMain() {
+        this.spinner.show();
+
+        setTimeout(() => {
+            /** spinner ends after 1 seconds */
+            this.spinner.hide();
+        }, 1000);
+        this.router.navigate(['home']);
+    }
+
 }

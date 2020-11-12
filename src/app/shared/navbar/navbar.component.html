@@ -12,7 +12,7 @@
             </div>
         </div>
         <div class="navbar-translate">
-            <a class="navbar-brand logoP" [routerLink]="['/home']" placement="bottom">
+            <a (click)='onActivateBlack()' class="navbar-brand logoP" placement="bottom">
                 Black Sushi & Pizza
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler"
@@ -35,7 +35,7 @@
                     <a class="nav-link m-0" href="tel:+380960494941">(096) 049-49-41</a>
                 </li>
                 <li class="nav-item tel">
-                    <a class="nav-link" [routerLink]="['/']">
+                    <a class="nav-link" [routerLink]="['/']" (click)='onActivate()'>
                         <i class="now-ui-icons -home"></i>
                         <p>Головна</p>
                     </a>

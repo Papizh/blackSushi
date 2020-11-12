@@ -1,9 +1,9 @@
-import {Component, OnInit, ElementRef, Output, EventEmitter} from '@angular/core';
-import {Location, LocationStrategy, PathLocationStrategy} from '@angular/common';
-import {Subscription} from 'rxjs';
-import {Router} from '@angular/router';
-import {ShoppingCartService} from '../../services/shopping-cart.service';
-import {ModalDismissReasons, NgbModal} from '@ng-bootstrap/ng-bootstrap';
+import { Component, OnInit, ElementRef, Output, EventEmitter } from '@angular/core';
+import { Location, LocationStrategy, PathLocationStrategy } from '@angular/common';
+import { Subscription } from 'rxjs';
+import { Router } from '@angular/router';
+import { ShoppingCartService } from '../../services/shopping-cart.service';
+import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
     selector: 'app-navbar',
@@ -18,10 +18,10 @@ export class NavbarComponent implements OnInit {
     closeResult: string;
 
     constructor(public location: Location,
-                private element: ElementRef,
-                private router: Router,
-                cartService: ShoppingCartService,
-                private modalService: NgbModal
+        private element: ElementRef,
+        private router: Router,
+        cartService: ShoppingCartService,
+        private modalService: NgbModal
     ) {
         this.sidebarVisible = false;
         cartService.initialize().then(() =>
@@ -38,13 +38,13 @@ export class NavbarComponent implements OnInit {
 
     open(content, type, modalDimension) {
         if (modalDimension === 'sm' && type === 'modal_mini') {
-            this.modalService.open(content, {windowClass: 'modal-mini modal-primary', size: 'sm'}).result.then((result) => {
+            this.modalService.open(content, { windowClass: 'modal-mini modal-primary', size: 'sm' }).result.then((result) => {
                 this.closeResult = `Closed with: ${result}`;
             }, (reason) => {
                 this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
             });
         } else if (modalDimension === undefined && type === 'Login') {
-            this.modalService.open(content, {windowClass: 'modal-login modal-primary'}).result.then((result) => {
+            this.modalService.open(content, { windowClass: 'modal-login modal-primary' }).result.then((result) => {
                 this.closeResult = `Closed with: ${result}`;
             }, (reason) => {
                 this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
@@ -97,9 +97,16 @@ export class NavbarComponent implements OnInit {
             this.sidebarClose();
         }
     };
-    // navigateToMain() {
-    //     this.router.navigate( ['/home'], { fragment: 'top' }  );
-    //     console.log("111")
-    // }
+
+
+    onActivate() {
+        window.scroll(0, 0);
+        //or document.body.scrollTop = 0;
+        //or document.querySelector('body').scrollTo(0,0)
+    }
+    onActivateBlack() {
+        this.router.navigate(['home'])
+        window.scroll(0, 0);
+    }
 
 }

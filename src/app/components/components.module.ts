@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NouisliderModule } from 'ng2-nouislider';
-import { JwBootstrapSwitchNg2Module } from 'jw-bootstrap-switch-ng2';
 import { RouterModule } from '@angular/router';
 
 import { ComponentsComponent } from './components.component';
@@ -27,13 +26,14 @@ import { CategoryService } from '../services/category.service';
 import { ProductService } from '../services/product.service';
 import { ShoppingCartService } from '../services/shopping-cart.service';
 import { ShoppingCartItemService } from '../services/shopping-cart-item.service';
-import { UserService } from '../services/user.service';
+
 import { AngularFireModule } from '@angular/fire';
 import { environment } from '../../environments/environment';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFireStorageModule } from '@angular/fire/storage';
 import { NgxSpinnerModule } from "ngx-spinner";
+import { OrderService } from 'app/services/order.service';
 
 
 
@@ -43,14 +43,11 @@ import { NgxSpinnerModule } from "ngx-spinner";
         CommonModule,
         FormsModule,
         NgbModule,
-        NouisliderModule,
         RouterModule,
-        JwBootstrapSwitchNg2Module,
         MaterialModule,
         ReactiveFormsModule,
         AngularFireModule.initializeApp(environment.firebase),
         AngularFirestoreModule,
-        AngularFireAuthModule,
         AngularFireStorageModule,
     ],
     schemas: [CUSTOM_ELEMENTS_SCHEMA],
@@ -70,7 +67,6 @@ import { NgxSpinnerModule } from "ngx-spinner";
         AddressFormComponent,
         OrderSummaryComponent,
         OrderReviewComponent,
-        AddressDisplayComponent,
         HomeComponent,
     ],
 
@@ -80,7 +76,7 @@ import { NgxSpinnerModule } from "ngx-spinner";
         ProductService,
         ShoppingCartService,
         ShoppingCartItemService,
-        UserService
+        OrderService,
     ],
 })
 export class ComponentsModule {

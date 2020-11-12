@@ -25,6 +25,7 @@ export class ProductCardComponent implements OnDestroy, OnChanges {
         ? this.item.product.category.name
         : 'Category'
       : 'Category';
+  
   }
 
   get imageUrl() {

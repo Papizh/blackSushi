@@ -8,16 +8,34 @@
 
 :host /deep/ .mat-radio-label {
   .mat-radio-label-content {
-    padding-right: 45px;
+    padding-right: 10px;
     padding-left: 5px;
+    font-size: 18px;
   }
 }
+
+:host /deep/ mat-radio-button {
+  height: 29px;
+}
+:host /deep/ mat-radio-button:hover {
+  background-color: rgba(156, 153, 161, 0.2);
+  border-radius: 0.5rem;
+}
+:host /deep/ mat-radio-button:active {
+  background-color: rgba(156, 153, 161, 0.2);
+  border-radius: 0.5rem;
+}
+
+:host /deep/ .mat-radio-container {
+  margin-left: 9px;
+}
+
 .post {
   display: flex;
   justify-content: space-around;
 }
 
-@media (max-width: 500px){
+@media (max-width: 500px) {
   :host /deep/ .mat-radio-label {
     .mat-radio-label-content {
       padding-right: 15px;
@@ -26,19 +44,31 @@
   }
 }
 
+@media (max-width: 500px) {
+  .container {
+    padding-right: 5px;
+    padding-left: 5px;
+  }
+}
+
 :host /deep/ .mat-radio-outer-circle {
-  border-color: black;
+  border-color: #2f3238;
 }
 
 :host /deep/ .mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle {
-  border-color: black;
+  border-color: #2f3238;
 }
 
 :host /deep/ .mat-radio-button.mat-accent .mat-radio-inner-circle {
-  background-color: black;
+  background-color: #2f3238;
 }
 
-
 :host /deep/ .mat-radio-button.mat-accent .mat-radio-inner-circle {
-  background-color: black;
+  background-color: #2f3238;
+}
+
+:host /deep/ .mat-radio-button:hover {
+  display: inline-block;
+  -webkit-tap-highlight-color: #2f3238;
+  outline: 0;
 }
